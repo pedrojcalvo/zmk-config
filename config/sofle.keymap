@@ -53,16 +53,16 @@
 // TODO: Some binds are waiting for shifted keycode support.
 // ------------------------------------------------------------------------------------------------------------
 // |       |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |   *   |  (   |   )   |  DEL  |
-// |       |     |     |      |      |      |                   |      |       |       |  =   |   +   |   ~   |
+// |       |     |  "  |      |      |      |                   |      |       |       |  =   |   +   |   ~   |
 // |       |     |     |      |      |      |                   |      |       |       |      |   [   |   ]   |
 // |   |   |     |     |      |      |      |        |  |       |      |       |   <   |  >   |   ?   |   _   |
 //               |     |      |      |      |        |  |       |      |       |       |   :  |
             bindings = <
 &trans     &kp EXCL  &kp AT   &kp POUND  &kp DLLR &kp PRCNT                       &kp CARET &kp AMPS &kp STAR        &kp LPAR  &kp RPAR  &kp DEL
-&trans     &trans    &trans   &trans     &trans   &trans                          &trans    &trans   &trans          &kp EQUAL &kp PLUS  &kp TILDE
+&trans     &trans    &kp DQT  &trans     &trans   &trans                          &trans    &trans   &trans          &kp EQUAL &kp PLUS  &kp TILDE
 &trans     &trans    &trans   &trans     &trans   &trans                          &kp CARET &kp AMPS &kp KP_MULTIPLY &trans    &kp LBKT  &kp RBKT
 &kp PIPE   &trans    &trans   &trans     &trans   &trans       &trans &trans      &trans    &trans   &kp LT          &kp GT    &kp QMARK &kp UNDERSCORE
-                     &trans    &trans    &trans   &trans       &trans &trans      &trans    &trans   &trans          &kp COLON
+                     &trans   &trans     &trans   &trans       &trans &trans      &trans    &trans   &trans          &kp COLON
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -71,17 +71,17 @@
         raise_layer {
             label = "raise";
 // ------------------------------------------------------------------------------------------------------------
-// |   F1  | F2   | F3   |  F4   |  F5   |  F6  |                |  F7  |   F8 | F9   |  F10  |  F11    |  F12  |
-// |       |      |   "  |       |       |      |                |      |      |   ^   |      | Page Up |   '   |
-// |       |      |      |       |       |      |                |      |   <- |   v   |  ->  |Page Down|       |
-// |       |      |      |       |       |      |      |  |      |      |      |       |      |         |       |
-//                |      |       |       |      |      |  |      |      |      |       |      |
+// |   F1  |    F2     |    F3      |     F4     |     F5     |     F6     |                  |  F7  |   F8  |     F9    |    F10   |  F11    |  F12  |
+// | BTCLR |    BT1    |     BT2    |    BT3     |    BT4     |    BT5     |                  |      |       |      ^    |          | Page Up |   '   |
+// |       |           |            |            |            |            |                  |      |   <-  |       v   |    ->    |Page Down|       |
+// |       |           |            |            |            |            |       |  |       |      |       |           |          |         |       |
+//                     |            |            |            |            |       |  |       |      |       |           |          |
             bindings = <
-&kp F1   &kp F2   &kp F3  &kp F4   &kp F5   &kp F6                 &kp F7  &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
-&trans   &trans   &kp DQT  &trans   &trans   &trans                 &trans  &trans    &kp UP    &trans    &kp PG_UP &kp SQT
-&trans   &trans   &trans   &trans   &trans   &trans                 &trans  &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans
-&trans   &trans   &trans   &trans   &trans   &trans  &trans  &trans &trans  &trans    &trans    &trans    &trans    &trans
-                  &trans   &trans   &trans  &trans  &trans &trans  &trans  &trans    &trans    &trans
+&kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6                          &kp F7  &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                    &trans  &trans    &kp UP    &trans    &kp PG_UP &kp SQT
+&trans     &trans       &trans       &trans       &trans       &trans                          &trans  &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN &trans
+&trans     &trans       &trans       &trans       &trans       &trans          &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans
+                        &trans       &trans       &trans       &trans          &trans &trans   &trans  &trans    &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -89,14 +89,14 @@
 
         adjust_layer {
 // ----------------------------------------------------------------------------------------------------------------------------
-// | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
+// |        |         |         |         |         |         |                  |      |      |       |      |       |       |
 // | EXTPWR | RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
 // |        | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |       |
 // |        |         |         |         |         |         | RGB_TOG | |      |      |      |       |      |       |       |
 //                    |         |         |         |         |         | |      |      |      |       |      |
             label = "adjust";
             bindings = <
-&bt BT_CLR        &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                            &none &none &none &none &none &none
+&none             &none           &none           &none           &none           &none                                   &none &none &none &none &none &none
 &ext_power EP_TOG &rgb_ug RGB_HUD &rgb_ug RGB_HUI &rgb_ug RGB_SAD &rgb_ug RGB_SAI &rgb_ug RGB_EFF                         &none &none &none &none &none &none
 &none             &rgb_ug RGB_BRD &rgb_ug RGB_BRI &none           &none           &none                                   &none &none &none &none &none &none
 &none             &none           &none           &none           &none           &none            &rgb_ug RGB_TOG &none  &none &none &none &none &none &none
