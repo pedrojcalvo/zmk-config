@@ -23,14 +23,32 @@
 
 / {
 
-    combos {
-        compatible = "zmk,combos";
+  behaviors {
+    escomma: spanish_comma {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SPANISH_COMMA";
+      #binding-cells = <0>;
+      bindings = <&kp COMMA>, <&kp LS(COMMA)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-
-    behaviors {
-        
-    
+    esdot: spanish_dot {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SPANISH_DOT";
+      #binding-cells = <0>;
+      bindings = <&kp DOT>, <&kp LS(DOT)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+    esntilde: spanish_ntilde {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SPANISH_NTILDE";
+      #binding-cells = <0>;
+      bindings = <&kp SEMI>, <&kp COLON>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    // angle brackets: < GRAVE   > LS(GRAVE)
+    // single quote:   ' MINUS   ? LS(MINUS)
+    // double quote:   " EQUAL   ? LS(EQUAL)
+  };
 
    // Activate ADJUST layer by pressing raise and lower
     conditional_layers {
@@ -56,7 +74,7 @@
 &kp ESC   &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                             &kp N6    &kp N7     &kp N8     &kp N9     &kp N0     &kp BSPC
 &kp TAB   &kp Q  &kp W    &kp E    &kp R     &kp T                              &kp Y     &kp U      &kp I      &kp O      &kp P      &kp LS(MINUS)
 &kp LSHFT &kp A  &kp S    &kp D    &kp F     &kp G                              &kp H     &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
-&kp BSLH  &kp Z  &kp X    &kp C    &kp V     &kp B      &none        &none      &kp N     &kp M      &kp COMMA  &kp DOT    &kp MINUS  &kp RSHFT  
+&kp BSLH  &kp Z  &kp X    &kp C    &kp V     &kp B      &none        &none      &kp N     &kp M      &escomma   &esdot     &kp SLASH  &kp RSHFT  
                  &kp LCTRL &kp LALT &kp LGUI &mo LOWER  &kp SPACE    &kp RET    &mo RAISE &mo ADJUST &kp RALT   &kp NUBS
             >;
 
@@ -74,9 +92,9 @@
 //               |     |      |      |      |        |  |       |      |       |       |   >  |
             bindings = <
 &trans     &trans    &trans   &trans     &trans   &trans                          &kp       &kp      &kp             &kp         &kp          &kp 
-&trans     &trans    &trans   &trans     &trans   &trans                          &kp Y     &kp U    &kp I           &kp O       &kp LS(N2)   &kp LS(GRAVE)
-&trans     &trans    &trans   &trans     &trans   &trans                          &kp H     &kp J    &kp K           &kp L       &kp SEMI     &kp LBKT
-&kp PIPE   &trans    &trans   &trans     &trans   &trans       &trans &trans      &trans    &trans   &kp LS(COMMA)   &kp LS(DOT) &kp LS(FSLH) &kp LBRC 
+&trans     &trans    &trans   &trans     &trans   &trans                          &kp Y     &kp U    &kp I           &kp O       &kp RBKT     &kp LBKT
+&trans     &trans    &trans   &trans     &trans   &trans                          &kp H     &kp J    &kp K           &kp L       &kp SEMI     &kp RA(LBKT)
+&kp PIPE   &trans    &trans   &trans     &trans   &trans       &trans &trans      &trans    &trans   &kp LS(COMMA)   &kp LS(DOT) &kp LS(FSLH) &kp RA(SQT) 
                      &trans   &trans     &trans   &trans       &trans &trans      &trans    &trans   &trans          &kp LS(NUBS)
             >;
 
@@ -94,8 +112,8 @@
             bindings = <
 &kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6                          &kp F7  &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                    &trans  &trans    &kp UP    &trans    &trans    &kp LS(SLASH)
-&trans     &trans       &trans       &trans       &trans       &trans                          &trans  &kp LEFT  &kp DOWN  &kp RIGHT &trans    &kp RBKT
-&trans     &trans       &trans       &trans       &trans       &trans          &trans  &trans  &trans  &trans    &trans    &trans    &trans    &kp RBRC
+&trans     &trans       &trans       &trans       &trans       &trans                          &trans  &kp LEFT  &kp DOWN  &kp RIGHT &trans    &kp RA(RBKT)
+&trans     &trans       &trans       &trans       &trans       &trans          &trans  &trans  &trans  &trans    &trans    &trans    &trans    &kp RA(BSLH)
                         &trans       &trans       &trans       &trans          &trans &trans   &trans  &trans    &trans    &trans
             >;
 
