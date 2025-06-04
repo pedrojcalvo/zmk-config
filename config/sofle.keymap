@@ -91,7 +91,7 @@
 // |   |   |     |     |      |      |      |        |  |       |      |       |   ;   |   :  |   _   |   {   |
 //               |     |      |      |      |        |  |       |      |       |       |   >  |
             bindings = <
-&trans     &trans    &trans   &trans     &trans   &trans                          &kp       &kp      &kp             &kp         &kp          &kp 
+&trans     &trans    &trans   &trans     &trans   &trans                          &trans    &trans      &trans           &trans         &trans         &trans 
 &trans     &trans    &trans   &trans     &trans   &trans                          &kp Y     &kp U    &kp I           &kp O       &kp RBKT     &kp LBKT
 &trans     &trans    &trans   &trans     &trans   &trans                          &kp H     &kp J    &kp K           &kp L       &kp SEMI     &kp RA(LBKT)
 &kp PIPE   &trans    &trans   &trans     &trans   &trans       &trans &trans      &trans    &trans   &kp LS(COMMA)   &kp LS(DOT) &kp LS(FSLH) &kp RA(SQT) 
