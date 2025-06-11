@@ -86,16 +86,16 @@
 // TODO: Some binds are waiting for shifted keycode support.
 // ------------------------------------------------------------------------------------------------------------
 // |       |  !  |  "  |  ·   |  $   |  %   |                   |  &   |  /    |   (   |   )  |   =   |  DEL  |
-// |       |     |     |      |      |      |                   |      |       |       |      |   +   |   ?   |
+// |       |     |  @  |      |      |      |                   |      |       |       |      |   +   |   ?   |
 // |       |     |     |      |      |      |                   |      |       |       |      |       |   [   |
 // |   |   |     |     |      |      |      |        |  |       |      |       |   ;   |   :  |   _   |   {   |
 //               |     |      |      |      |        |  |       |      |       |       |   >  |
             bindings = <
-&trans     &trans    &trans   &trans     &trans   &trans                          &trans    &trans      &trans           &trans         &trans         &trans 
-&trans     &trans    &trans   &trans     &trans   &trans                          &kp Y     &kp U    &kp I           &kp O       &kp RBKT     &kp LBKT
-&trans     &trans    &trans   &trans     &trans   &trans                          &kp H     &kp J    &kp K           &kp L       &kp SEMI     &kp RA(LBKT)
-&kp PIPE   &trans    &trans   &trans     &trans   &trans       &trans &trans      &trans    &trans   &kp LS(COMMA)   &kp LS(DOT) &kp LS(FSLH) &kp RA(SQT) 
-                     &trans   &trans     &trans   &trans       &trans &trans      &trans    &trans   &trans          &kp LS(GRAVE)
+&trans     &trans    &trans     &trans     &trans   &trans                      &trans    &trans   &trans          &trans      &trans       &kp LC(DEL) 
+&trans     &trans    &kp RA(N2) &trans     &trans   &trans                          &kp Y     &kp U    &kp I           &kp O       &kp RBKT     &kp LBKT
+&trans     &trans    &trans     &trans     &trans   &trans                          &kp H     &kp J    &kp K           &kp L       &kp SEMI     &kp RA(LBKT)
+&kp PIPE   &trans    &trans     &trans     &trans   &trans       &trans &trans      &trans    &trans   &kp LS(COMMA)   &kp LS(DOT) &kp LS(FSLH) &kp RA(SQT) 
+                     &trans     &trans     &trans   &trans       &trans &trans      &trans    &trans   &trans          &kp LS(GRAVE)
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
